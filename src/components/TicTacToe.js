@@ -1,9 +1,15 @@
+import { Constants } from "./constants/Constants";
 import "../styles/TicTacToe.css";
 
 const TicTacToe = () => {
-  return (
+
+  const {
+    TITLE
+  } = Constants;
+
+  return(
     <div className="tictactoe-container" data-testid="tictactoe">
-      Tic Tac Toe
+      <div className="header" data-testid="header">{TITLE}</div>
     </div>
   );
 }

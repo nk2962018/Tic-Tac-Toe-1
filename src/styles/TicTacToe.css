@@ -1,3 +1,15 @@
 .tictactoe-container{
     text-align: center;
+    background-color:darkturquoise;
+    width:400px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.header{
+    color:white;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    padding:10px;
 }
