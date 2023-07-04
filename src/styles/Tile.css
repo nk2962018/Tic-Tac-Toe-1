@@ -1,0 +1,9 @@
+.tile{
+    border: 2px solid white;
+    color: black;
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: darkturquoise;
+    margin: 1px;
+    font-weight: bold;
+}

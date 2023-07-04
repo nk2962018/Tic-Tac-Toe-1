@@ -22,5 +22,10 @@ describe("TicTacToe works fine when", () => {
     expect(titleText).toHaveTextContent(TestConstants.TITLE);
   });
 
+  it("should render board component", () => {
+    const boardComponent = screen.getByTestId("board");
+    expect(boardComponent).toBeInTheDocument();
+  });
+
 });
 
