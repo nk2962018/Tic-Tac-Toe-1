@@ -27,20 +27,35 @@ describe("TicTacToe works fine when", () => {
     expect(boardComponent).toBeInTheDocument();
   });
 
-  it("should mark first clicked tile as X and rest tiles should remain empty", () => {
-    const [firstTile, ...remainingTiles] = screen.getAllByTestId("tile");
-    fireEvent.click(firstTile);
-    expect(firstTile.textContent).toBe(TestConstants.PLAYER_X);
-    remainingTiles.forEach((tile) => {
-      expect(tile.textContent).toBe(TestConstants.EMPTY);
+});
+
+describe("TicTacToe game works fine when" , () => {
+  let tiles;
+  beforeEach(() => {
+    render(<TicTacToe/>)
+    tiles = screen.getAllByTestId('tile');
+  });
+
+  const checkTileSymbolOnClicking = (tile, expectedSymbol) => {
+    fireEvent.click(tile);
+    expect(tile.textContent).toBe(expectedSymbol);
+  };
+
+  const checkSymbol = (tiles, expectedSymbol) => {
+    tiles.forEach((tile) => {
+      expect(tile.textContent).toBe(expectedSymbol);
     });
+  };
+
+  it("should mark first clicked tile as X and rest tiles should remain empty", () => {
+    const [firstTile, ...remainingTiles] = tiles;
+    checkTileSymbolOnClicking(firstTile,TestConstants.PLAYER_X);
+    checkSymbol(remainingTiles,TestConstants.EMPTY);
   });
 
   it("should mark each tiles as X once the particualar tile is clicked", () => {
-    const tiles = screen.getAllByTestId("tile");
     tiles.forEach((tile) => {
-      fireEvent.click(tile);
-      expect(tile.textContent).toBe(TestConstants.PLAYER_X);
+      checkTileSymbolOnClicking(tile,TestConstants.PLAYER_X);
     });
   });
 
