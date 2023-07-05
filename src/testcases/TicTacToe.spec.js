@@ -47,16 +47,11 @@ describe("TicTacToe game works fine when" , () => {
     });
   };
 
-  it("should mark first clicked tile as X and rest tiles should remain empty", () => {
-    const [firstTile, ...remainingTiles] = tiles;
-    checkTileSymbolOnClicking(firstTile,TestConstants.PLAYER_X);
-    checkSymbol(remainingTiles,TestConstants.EMPTY);
-  });
-
-  it("should mark each tiles as X once the particualar tile is clicked", () => {
-    tiles.forEach((tile) => {
-      checkTileSymbolOnClicking(tile,TestConstants.PLAYER_X);
-    });
+  it("should mark first tile with X second with O and rest tiles should be empty", () => {
+    const [firstTile, secondTile, ...remainingTiles] = tiles;
+    checkTileSymbolOnClicking(firstTile, TestConstants.PLAYER_X);
+    checkTileSymbolOnClicking(secondTile, TestConstants.PLAYER_O);
+    checkSymbol(remainingTiles, TestConstants.EMPTY);
   });
 
 });
