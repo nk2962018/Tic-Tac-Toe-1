@@ -54,5 +54,13 @@ describe("TicTacToe game works fine when" , () => {
     checkSymbol(remainingTiles, TestConstants.EMPTY);
   });
 
+  it("should not update an already marked tile", () => {
+    tiles.forEach((tile)=>{
+      (tile.textContent != TestConstants.EMPTY) ? 
+      (checkTileSymbolOnClicking(tile,TestConstants.PLAYER_X ) || checkTileSymbolOnClicking(tile,TestConstants.PLAYER_O)) 
+      : null
+    });
+  });
+
 });
 

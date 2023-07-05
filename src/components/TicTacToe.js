@@ -24,6 +24,8 @@ const TicTacToe = () => {
   }
 
   const updatedTileAfterMarking = (desiredTile) => {
+    const updateBoard = [...board]
+    if(updateBoard[desiredTile]) return;
     const tilesAfterClicking = board.map((board, currentTile) => {
       return updateBoardOnMarkingSelectedTile(currentTile,desiredTile,board)
     });
