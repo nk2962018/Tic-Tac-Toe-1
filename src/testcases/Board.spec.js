@@ -1,18 +1,21 @@
 import { render, screen } from "@testing-library/react";
 import Board from "../components/Board";
+import { TestConstants } from "../components/constants/TestConstants";
 
 describe(("Board component works fine when"), () => {
 
-    it("renders one tile in the board", () => {
-        render(<Board/>)
-        const tile = screen.getByTestId("tile");
-        expect(tile).toBeInTheDocument();
+    it("renders 3X3 board", () => {
+        render(<Board tiles={Array(TestConstants.NO_OF_TILES_IN_THE_BOARD).fill(TestConstants.EMPTY)}/>)
+        const tiles = screen.getAllByTestId("tile");
+        expect(tiles).toHaveLength(TestConstants.NO_OF_TILES_IN_THE_BOARD);
     });
 
-    it("renders one tile with value X", () => {
-        render(<Board/>)
-        const tileValue = screen.getByTestId("tile");
-        expect(tileValue).toHaveTextContent("X");
+    it("should have tiles with empty values initially", () => {
+        render(<Board tiles={Array(TestConstants.NO_OF_TILES_IN_THE_BOARD).fill(TestConstants.EMPTY)}/>)
+        const tiles = screen.getAllByTestId("tile");
+        tiles.forEach((tile) => {
+            expect(tile.textContent).toBe(TestConstants.EMPTY);
+        }); 
     });
 
 });
