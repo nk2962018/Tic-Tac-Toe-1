@@ -27,6 +27,11 @@ describe("TicTacToe works fine when", () => {
     expect(boardComponent).toBeInTheDocument();
   });
 
+  it("displays message for next player's turn", () => {
+    const status = screen.getByTestId("status");
+    expect(status).toBeInTheDocument();
+  });
+
 });
 
 describe("TicTacToe game works fine when" , () => {
