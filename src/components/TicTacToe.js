@@ -29,7 +29,10 @@ const TicTacToe = () => {
   const [currentPlayer, setCurrentPlayer] = useState(PLAYER_X);
   const winner = calculateWinner(board)
 
-  
+  const resetGame = () => {
+    setBoard(Array(NO_OF_TILES_IN_THE_BOARD).fill(EMPTY));
+    setCurrentPlayer(PLAYER_X)
+  };
 
   const updateBoardOnMarkingSelectedTile = (currentTile, desiredTile, board) => {
     if(currentTile === desiredTile) {
@@ -57,7 +60,7 @@ const TicTacToe = () => {
       <div className="header" data-testid="header">{TITLE}</div>
       <Board boardTestId="board" tiles={board} onClick={updatedTileAfterMarking}/>
       <Status player={currentPlayer} winner={winner} board={board}/>
-      <button data-testid="reset" className="reset">{RESET_BUTTON_TITLE}</button>
+      <button data-testid="reset" className="reset" onClick={resetGame}>{RESET_BUTTON_TITLE}</button>
     </div>
   );
 }

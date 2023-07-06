@@ -175,6 +175,17 @@ describe("TicTacToe game works fine when" , () => {
     const resetButtonText = screen.getByTestId("reset");
     expect(resetButtonText).toHaveTextContent(TestConstants.RESET_BUTTON_TITLE);
   });
+
+  it(("should reset the game on clicking the play again button"), ()=>{
+    const reset = screen.getByTestId("reset");
+    fireEvent.click(reset);
+    tiles.forEach((tile)=>{
+      expect(tile).toHaveTextContent(TestConstants.EMPTY)
+    });
+    const { NEXT_PLAYER_TURN_MESSAGE, PLAYER_X } = TestConstants;
+    const status = screen.getByTestId("status");
+    expect(status).toHaveTextContent(`${NEXT_PLAYER_TURN_MESSAGE}${PLAYER_X}`);
+  });
   
 });
 
