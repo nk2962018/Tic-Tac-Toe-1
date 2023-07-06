@@ -67,5 +67,27 @@ describe("TicTacToe game works fine when" , () => {
     });
   });
 
+  it(("displays winning message for X when it marks all the first row winning positions"), () => {
+    const {PLAYER_X, DECLARE_WINNER_MESSAGE } = TestConstants;
+    const winningPositions = [0,3,1,6,2];
+    const winner = PLAYER_X;
+    winningPositions.forEach((position) => {
+        fireEvent.click(tiles[position])
+    })
+    const status = screen.getByTestId("status");
+    expect(status).toHaveTextContent(`${DECLARE_WINNER_MESSAGE}${winner}`)
+  });
+
+  it(("displays winning message for O when it marks all the first row winning positions"), () => {
+    const {PLAYER_O, DECLARE_WINNER_MESSAGE } = TestConstants;
+    const winningPositions = [3,0,6,1,4,2];
+    const winner = PLAYER_O;
+    winningPositions.forEach((position) => {
+        fireEvent.click(tiles[position])
+    })
+    const status = screen.getByTestId("status");
+    expect(status).toHaveTextContent(`${DECLARE_WINNER_MESSAGE}${winner}`)
+  });
+
 });
 
