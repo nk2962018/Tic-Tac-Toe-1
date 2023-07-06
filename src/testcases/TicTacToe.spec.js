@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import TicTacToe from "../components/TicTacToe";
-import { TestConstants, tilePositionsToDeclareWinner } from "../components/constants/TestConstants";
+import { TestConstants, tilePositionsForMatchDraw, tilePositionsToDeclareWinner } from "../components/constants/TestConstants";
 
 describe("TicTacToe works fine when", () => {
   beforeEach(() => {
@@ -79,6 +79,17 @@ describe("TicTacToe game works fine when" , () => {
     expect(status).toHaveTextContent(`${DECLARE_WINNER_MESSAGE}${winner}`);
   };
 
+  const declareMatchDraw = ({
+    DRAW_POSITIONS :positions
+  }) => {
+    const { MATCH_DRAW_MESSAGE } = TestConstants;
+    positions.forEach((position) => {
+      fireEvent.click(tiles[position]);
+    });
+    const status = screen.getByTestId("status");
+    expect(status).toHaveTextContent(`${MATCH_DRAW_MESSAGE}`);
+  }
+
   it(("displays winning message for player X when it marks all the first row winning positions"), () => {
     declareWinnerOnMarkingDesiredPositions(tilePositionsToDeclareWinner.winningMovesFirstRow_X)
   });
@@ -144,13 +155,7 @@ describe("TicTacToe game works fine when" , () => {
   });
 
  it(("should display draw message when all tiles are marked and no player wins"), () => {
-    const { MATCH_DRAW_MESSAGE } = TestConstants;
-    const drawPositions = [0,1,2,3,6,4,5,8,7]
-    drawPositions.forEach((position) => {
-      fireEvent.click(tiles[position]);
-    });
-    const status = screen.getByTestId("status");
-    expect(status).toHaveTextContent(`${MATCH_DRAW_MESSAGE}`);
+    declareMatchDraw(tilePositionsForMatchDraw.matchDrawMoves)
   });
   
 });
