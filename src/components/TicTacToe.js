@@ -55,7 +55,7 @@ const TicTacToe = () => {
     <div className="tictactoe-container" data-testid="tictactoe">
       <div className="header" data-testid="header">{TITLE}</div>
       <Board boardTestId="board" tiles={board} onClick={updatedTileAfterMarking}/>
-      <Status player={currentPlayer} winner={winner}/>
+      <Status player={currentPlayer} winner={winner} board={board}/>
     </div>
   );
 }
