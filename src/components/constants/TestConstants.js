@@ -11,6 +11,20 @@ export const TestConstants = {
 };
 
 export const WINNING_COMBINATIONS = [
-    TestConstants.FIRST_ROW_WINNING_POSITION
+    TestConstants.FIRST_ROW_WINNING_POSITION,
 
 ];
+
+export const tilePositionsToDeclareWinner = {
+    
+    winningMovesFirstRow_X : {
+        WINING_POSITIONS : [0,3,1,6,2],
+        WINNER : TestConstants.PLAYER_X
+    },
+
+    winningMovesFirstRow_O : {
+        WINING_POSITIONS : [3,0,6,1,4,2],
+        WINNER : TestConstants.PLAYER_O
+    }
+
+}
