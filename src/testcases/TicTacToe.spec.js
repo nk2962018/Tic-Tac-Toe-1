@@ -165,6 +165,16 @@ describe("TicTacToe game works fine when" , () => {
     expect(tiles[7]).toHaveTextContent(TestConstants.EMPTY)
     expect(tiles[8]).toHaveTextContent(TestConstants.EMPTY)
   });
+
+  it(("should render play again button"), () => {
+    const resetButton = screen.getByTestId("reset");
+    expect(resetButton).toBeInTheDocument();
+  });
+
+  it(("should display play again button with proper title"), () => {
+    const resetButtonText = screen.getByTestId("reset");
+    expect(resetButtonText).toHaveTextContent(TestConstants.RESET_BUTTON_TITLE);
+  });
   
 });
 

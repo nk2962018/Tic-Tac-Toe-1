@@ -11,7 +11,8 @@ const TicTacToe = () => {
     NO_OF_TILES_IN_THE_BOARD,
     EMPTY,
     PLAYER_X,
-    PLAYER_O
+    PLAYER_O,
+    RESET_BUTTON_TITLE
   } = Constants;
 
   const calculateWinner = (board) => {
@@ -56,6 +57,7 @@ const TicTacToe = () => {
       <div className="header" data-testid="header">{TITLE}</div>
       <Board boardTestId="board" tiles={board} onClick={updatedTileAfterMarking}/>
       <Status player={currentPlayer} winner={winner} board={board}/>
+      <button data-testid="reset" className="reset">{RESET_BUTTON_TITLE}</button>
     </div>
   );
 }

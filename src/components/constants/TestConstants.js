@@ -7,6 +7,7 @@ export const TestConstants = {
     NEXT_PLAYER_TURN_MESSAGE: "Next Player : ",
     DECLARE_WINNER_MESSAGE: 'The Winner is : ',
     MATCH_DRAW_MESSAGE: "Match Draw",
+    RESET_BUTTON_TITLE: "Play Again",
     FIRST_ROW_WINNING_POSITION: [0,1,2],
     SECOND_ROW_WINNING_POSITION: [3,4,5],
     THIRD_ROW_WINNING_POSITION: [6,7,8],
