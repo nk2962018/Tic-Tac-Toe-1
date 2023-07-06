@@ -95,5 +95,13 @@ describe("TicTacToe game works fine when" , () => {
     declareWinnerOnMarkingDesiredPositions(tilePositionsToDeclareWinner.winningMovesSecondRow_O)
   });
 
+  it(("displays winning message for player X when it marks all the third row winning positions"), () => {
+    declareWinnerOnMarkingDesiredPositions(tilePositionsToDeclareWinner.winningMovesThirdRow_X)
+  });
+
+  it(("displays winning message for player O when it marks all the third row winning positions"), () => {
+    declareWinnerOnMarkingDesiredPositions(tilePositionsToDeclareWinner.winningMovesThirdRow_O)
+  });
+
 });
 
