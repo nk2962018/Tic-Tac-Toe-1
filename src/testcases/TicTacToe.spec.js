@@ -157,6 +157,14 @@ describe("TicTacToe game works fine when" , () => {
  it(("should display draw message when all tiles are marked and no player wins"), () => {
     declareMatchDraw(tilePositionsForMatchDraw.matchDrawMoves)
   });
+
+  it(("should disable other tiles once there is a winner"), () => {
+    declareWinnerOnMarkingDesiredPositions(tilePositionsToDeclareWinner.winningMovesTopRightBottomLeftDiagonal_X)
+    expect(tiles[0]).toHaveTextContent(TestConstants.EMPTY)
+    expect(tiles[5]).toHaveTextContent(TestConstants.EMPTY)
+    expect(tiles[7]).toHaveTextContent(TestConstants.EMPTY)
+    expect(tiles[8]).toHaveTextContent(TestConstants.EMPTY)
+  });
   
 });
 
