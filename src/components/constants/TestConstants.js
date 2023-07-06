@@ -8,14 +8,16 @@ export const TestConstants = {
     DECLARE_WINNER_MESSAGE: 'The Winner is : ',
     FIRST_ROW_WINNING_POSITION: [0,1,2],
     SECOND_ROW_WINNING_POSITION: [3,4,5],
-    THIRD_ROW_WINNING_POSITION: [6,7,8]
+    THIRD_ROW_WINNING_POSITION: [6,7,8],
+    SECOND_COL_WINNING_POSITION: [1,4,7]
     
 };
 
 export const WINNING_COMBINATIONS = [
     TestConstants.FIRST_ROW_WINNING_POSITION,
     TestConstants.SECOND_ROW_WINNING_POSITION,
-    TestConstants.THIRD_ROW_WINNING_POSITION
+    TestConstants.THIRD_ROW_WINNING_POSITION,
+    TestConstants.SECOND_COL_WINNING_POSITION
 
 ];
 
@@ -60,5 +62,15 @@ export const tilePositionsToDeclareWinner = {
         WINING_POSITIONS : [1,0,5,3,7,6],
         WINNER : TestConstants.PLAYER_O
     },
+
+    winningMovesSecondCol_X : {
+        WINING_POSITIONS : [1,3,4,2,7],
+        WINNER : TestConstants.PLAYER_X
+    },
+
+    winningMovesSecondCol_O : {
+        WINING_POSITIONS : [0,1,5,4,2,7],
+        WINNER : TestConstants.PLAYER_O
+    }
 
 }
